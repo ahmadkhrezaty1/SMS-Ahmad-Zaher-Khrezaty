@@ -10,10 +10,10 @@
 
      <div class="logo">
         <a href="<?php echo admin_url() ?>" class="simple-text logo-mini">
-          CT
+          ET
         </a>
         <a href="<?php echo admin_url() ?>" class="simple-text logo-normal">
-          Creative Tim
+          Ebla Team
         </a>
       </div>
 
@@ -34,9 +34,9 @@
                 <div class="collapse" id="collapseExample">
                     <ul class="nav">
                         <li>
-                            <a href="<?php echo admin_url('profile') ?>">
+                            <a href="<?php echo admin_url('profile/edit_user/'.$this->session->userdata('user_id')) ?>">
                                 <span class="sidebar-mini"> MP </span>
-                                <span class="sidebar-normal"> <?php echo lang('profile') ?> </span>
+                                <span class="sidebar-normal"> <?php echo _l('profile') ?> </span>
                             </a>
                         </li>
                         <li>

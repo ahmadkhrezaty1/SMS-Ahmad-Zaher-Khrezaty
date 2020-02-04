@@ -78,7 +78,7 @@ class Label_management extends MY_Controller
     	$data['offset'] = $offset + 1;
     	$data['start'] = $offset + $data['per_page'];
     	$this->session->set_flashdata(['offset' => $offset]);
-    	$data['title'] = lang("label_management");
+    	$data['title'] = _l("label_management");
 
     	$this->load->view('admin/language', $data);
 	}

@@ -1,4 +1,5 @@
 <?php
+$lang['user_type'] = "User Type";
 $lang['avatar'] = "Avatar";
 $lang['full_name'] = "Full Name";
 $lang['US'] = "US";

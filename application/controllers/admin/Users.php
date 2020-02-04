@@ -18,13 +18,13 @@ class Users extends MY_Controller{
 
 	public function index(){
 
-		$data['title'] = lang('users');
+		$data['title'] = _l('users');
 		$this->load->view('admin/users/manage', $data);
 	}
 
 	public function groups(){
 
-		$data['title'] = lang('groups');
+		$data['title'] = _l('groups');
 		$this->load->view('admin/users/groups', $data);
 	}
 

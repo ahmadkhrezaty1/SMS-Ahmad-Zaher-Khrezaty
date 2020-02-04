@@ -1,7 +1,6 @@
 
 
 <?php init_head() ?>
-      <div class="col-sm-8 col-sm-offset-2">
         <!--      Wizard container        -->
         <div class="wizard-container">
             <div class="card wizard-card" data-color="rose" id="wizardProfile">
@@ -166,7 +165,6 @@
                 </form>
             </div>
         </div> <!-- wizard container -->
-    </div>
  <?php init_tail() ?>
 <script type="text/javascript">
     $(document).ready(function(){

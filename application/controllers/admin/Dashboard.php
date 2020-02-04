@@ -6,7 +6,7 @@ class Dashboard extends MY_Controller {
 	public function index()
 	{
 		
-		$data['title'] = lang('dashboard');
+		$data['title'] = _l('dashboard');
 		$data['user'] = $this->user;
 		$this->load->view('template', $data);
 	}

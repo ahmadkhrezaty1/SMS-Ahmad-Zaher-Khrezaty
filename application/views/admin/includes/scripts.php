@@ -64,9 +64,6 @@
 <!-- Sliders Plugin, full documentation here: https://refreshless.com/nouislider/ -->
 <script src="<?php echo base_url() ?>assets1/js/nouislider.min.js"></script>
 
-<!--  Google Maps Plugin    -->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD1_8C5Xz9RpEeJSaJ3E_DeBv8i7j_p6Aw"></script>
-
 <!--  Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
 <script src="<?php echo base_url() ?>assets1/js/jquery.select-bootstrap.js"></script>
 

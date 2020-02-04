@@ -6,7 +6,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="<?php echo admin_url('profile') ?>">
+                            <a href="<?php echo admin_url('profile/edit_user/'.$this->session->userdata('user_id')) ?>">
                                 <span class="sidebar-normal"> <?php echo lang('profile') ?> </span>
                             </a>
                         </li>

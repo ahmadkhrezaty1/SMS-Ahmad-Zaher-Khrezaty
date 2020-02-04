@@ -17,7 +17,7 @@
   <!--  Material Dashboard CSS    -->
   <link href="<?php echo base_url() ?>assets1/css/material-dashboard.css?v=1.3.0" rel="stylesheet"/>
   <!--     Fonts and icons     -->
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+  <link href="<?php echo base_url() ?>assets1/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets1/css/google-font.css" />
   <link href="<?php echo base_url() ?>assets1/css/google-font2.css"
       rel="stylesheet">
