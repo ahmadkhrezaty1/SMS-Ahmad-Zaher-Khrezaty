@@ -45,6 +45,12 @@
                                 <?php echo render_input('address',_l('address'), $user->address, 'address'); ?>
                               </div>
                             </div>
+                            <?php 
+                              foreach($this->ion_auth->get_users_groups($user->id)->result() as $user_group){
+                                if($user_group->id == 1) continue;
+                                $group_id = $user_group->id;
+                              }
+                            ?>
                             <div class="row">
                               <div class="col-md-12">
                                 <div class="form-group">
@@ -84,12 +90,6 @@
                                 </div>
                               </div>
                             </div>
-                            <?php 
-                              foreach($this->ion_auth->get_users_groups($user->id)->result() as $user_group){
-                                if($user_group->id == 1) continue;
-                                $group_id = $user_group->id;
-                              }
-                            ?>
 
 
                             <div class="row">
