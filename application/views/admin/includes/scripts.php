@@ -29,8 +29,6 @@
 <script src="<?php echo base_url() ?>assets1/js/jquery.min.js" type="text/javascript"></script>
 <script src="<?php echo base_url() ?>assets1/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="<?php echo base_url() ?>assets1/js/material.min.js" type="text/javascript"></script>
-<script src="<?php echo base_url() ?>assets1/js/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
-
 <!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support SweetAlert -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
 
@@ -84,8 +82,5 @@
 
 <!-- Material Dashboard javascript methods -->
 <script src="<?php echo base_url() ?>assets1/js/material-dashboard.js?v=1.3.0"></script>
-
-<!-- Material Dashboard DEMO methods, don't include it in your project! -->
-<script src="<?php echo base_url() ?>assets1/js/demo.js"></script>
 
   <?php $this->load->view('admin/includes/alert') ?>

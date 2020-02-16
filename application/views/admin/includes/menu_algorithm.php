@@ -5,11 +5,29 @@
   }
 
   usort($menu, 'sortByPosition');
+  $user_id = $this->ion_auth->user()->row()->id;
+
 ?>
 <?php if (isset($title)) $getTitle = $title; else $getTitle = '' ?>
 <?php foreach ($menu as $tag){ ?>
+  <?php  
+    $permission = $tag['permission'];
+    if(!empty($permission)){
+      $permission[] = 1;
+      if (!$this->ion_auth->in_group($permission))
+        continue;
+    }
+  ?>
   <?php if (isset($tag['collapse'])){ ?>
     <?php foreach($tag['links'] as $link){
+
+      $permission = $link['permission'];
+      if(!empty($permission)){
+        $permission[] = 1;
+        if (!$this->ion_auth->in_group($permission))
+          continue;
+      }
+
       if (in_array($getTitle, $link)){
         $in = 'in'; $active = 'active'; break;
       }
@@ -27,7 +45,14 @@
             </a>
             <div class="collapse <?php echo $in ?>" id="users">
                 <ul class="nav">
-      <?php usort($tag['links'], 'sortByPosition'); foreach ($tag['links'] as $link){ ?>
+      <?php usort($tag['links'], 'sortByPosition'); foreach ($tag['links'] as $link){ 
+        $permission = $link['permission'];
+        if(!empty($permission)){
+          $permission[] = 1;
+          if (!$this->ion_auth->in_group($permission))
+            continue;
+        }   
+          ?>
                     <li class="nav-link <?php if ($getTitle == $link['name']) echo "active" ?>">
                         <a style="font-size: 13px" class="nav-link" href="<?php echo $link['href'] ?>">
                             <span class="sidebar-mini"> 

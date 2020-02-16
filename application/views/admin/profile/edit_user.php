@@ -45,26 +45,29 @@
                                 <?php echo render_input('address',_l('address'), $user->address, 'address'); ?>
                               </div>
                             </div>
-                            <?php 
-                              foreach($this->ion_auth->get_users_groups($user->id)->result() as $user_group){
-                                if($user_group->id == 1) continue;
-                                $group_id = $user_group->id;
-                              }
-                            ?>
-                            <div class="row">
-                              <div class="col-md-12">
-                                <div class="form-group">
-                                  <label for="user_type" id="user_type"><?php echo _l('user_type') ?></label>
-                                  <select name="user_type" id="user_type" class="selectpicker" data-style="select-with-transition" title="user_type" data-size="7">
-                                      <option disabled selected>Choose <?php echo _l("user_type") ?></option>
-                                    <?php foreach($this->ion_auth->groups()->result() as $group){ ?>
-                                      <?php if($group->id == 1) continue; ?>
-                                      <option <?php if($group->id == $group_id) echo "selected='selected'" ?> value="<?php echo $group->id ?>"><?php echo $group->name ?></option>
-                                    <?php } ?>
-                                  </select>
+                            <?php if ($this->ion_auth->is_admin()) { ?>
+                              <?php 
+                                $group_id = null;
+                                foreach($this->ion_auth->get_users_groups($user->id)->result() as $user_group){
+                                  if($user_group->id == 1) continue;
+                                  $group_id = $user_group->id;
+                                }
+                              ?>
+                              <div class="row">
+                                <div class="col-md-12">
+                                  <div class="form-group">
+                                    <label for="user_type" id="user_type"><?php echo _l('user_type') ?></label>
+                                    <select name="user_type" id="user_type" class="selectpicker" data-style="select-with-transition" title="user_type" data-size="7">
+                                        <option disabled selected>Choose <?php echo _l("user_type") ?></option>
+                                      <?php foreach($this->ion_auth->groups()->result() as $group){ ?>
+                                        <?php if($group->id == 1) continue; ?>
+                                        <option <?php if($group->id == $group_id) echo "selected='selected'" ?> value="<?php echo $group->id ?>"><?php echo $group->name ?></option>
+                                      <?php } ?>
+                                    </select>
+                                  </div>
                                 </div>
                               </div>
-                            </div>
+                            <?php } ?>
                             <div class="row">
                               <div class="col-md-6">
                                 <div class="form-group">
@@ -126,18 +129,20 @@
                                 <?php echo _l('without_photo') ?>
                               </label>
                             </div>
-                            <?php
-                              $checked = '';
-                              if($this->ion_auth->in_group(1, $user->id)){
-                                $checked = 'checked="checked"';
-                              }
-                            ?>
-                            <div class="checkbox form-horizontal-checkbox">
-                              <label>
-                                <input <?php echo $checked ?> type="checkbox" value="1" name="is_admin"><span class="checkbox-material"></span>
-                                <?php echo _l('is_admin') ?>
-                              </label>
-                            </div>
+                            <?php if ($this->ion_auth->is_admin() and $this->ion_auth->user()->row()->id != $user->id){ ?>
+                              <?php
+                                $checked = '';
+                                if($this->ion_auth->in_group(1, $user->id)){
+                                  $checked = 'checked="checked"';
+                                }
+                              ?>
+                              <div class="checkbox form-horizontal-checkbox">
+                                <label>
+                                  <input <?php echo $checked ?> type="checkbox" value="1" name="is_admin"><span class="checkbox-material"></span>
+                                  <?php echo _l('is_admin') ?>
+                                </label>
+                              </div>
+                            <?php }?>
                           </div>
                         </div>
                         <button type="submit" class="btn btn-rose pull-right"><?php echo _l('update_profile') ?></button>

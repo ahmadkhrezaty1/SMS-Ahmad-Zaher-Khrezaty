@@ -7,7 +7,7 @@
                     <ul class="dropdown-menu">
                         <li>
                             <a href="<?php echo admin_url('profile/edit_user/'.$this->session->userdata('user_id')) ?>">
-                                <span class="sidebar-normal"> <?php echo lang('profile') ?> </span>
+                                <span class="sidebar-normal"> <?php echo _l('profile') ?> </span>
                             </a>
                         </li>
                         <li>
@@ -23,7 +23,7 @@
                         <div class="dropdown-divider"></div>
                         <li>
                             <a href="<?php echo base_url() ?>auth/logout">
-                                <span class="sidebar-normal"> <?php echo lang('logout') ?> </span>
+                                <span class="sidebar-normal"> <?php echo _l('logout') ?> </span>
                             </a>
                         </li>
                     </ul>

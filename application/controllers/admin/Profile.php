@@ -78,20 +78,24 @@ class Profile extends MY_Controller{
 				{
 					// redirect them back to the admin page if admin, or to the base url if non admin
 
-					if(!empty($this->input->post('is_admin'))){
-						if(!$this->ion_auth->is_admin($id)){
-							$this->ion_auth->add_to_group(1, $id);
+					if ($this->ion_auth->is_admin()){
+		
+
+						if(!empty($this->input->post('is_admin'))){
+							if(!$this->ion_auth->is_admin($id)){
+								$this->ion_auth->add_to_group(1, $id);
+							}
+						}else{
+							$this->ion_auth->remove_from_group(1, $id);
 						}
-					}else{
-						$this->ion_auth->remove_from_group(1, $id);
-					}
 
-					if(!empty($this->input->post('user_type'))){
+						if(!empty($this->input->post('user_type'))){
 
-						$user_type = $this->input->post('user_type');
-						
-				        $this->ion_auth->remove_from_group(array('2', '3', '4', '5', '6', '7', '8', '9', '10'), $id);
-						$this->ion_auth->add_to_group($user_type, $id);
+							$user_type = $this->input->post('user_type');
+							
+					        $this->ion_auth->remove_from_group(array('2', '3', '4', '5', '6', '7', '8', '9', '10'), $id);
+							$this->ion_auth->add_to_group($user_type, $id);
+						}
 					}
 
 
