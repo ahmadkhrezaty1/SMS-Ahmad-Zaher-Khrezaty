@@ -31,13 +31,6 @@
             'permission' => [],
             'position' => 10
           ],
-          [
-            'name' => _l('groups'),
-            'href' => admin_url('users/groups'),
-            'title' => 'GR',
-            'permission' => [6],
-            'position' => 15
-          ],
       ],
     ],
     
